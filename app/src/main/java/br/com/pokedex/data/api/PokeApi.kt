@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface PokeApi {
     @GET("pokemon")
-    suspend fun listPokemon(@Query("limit") limit: Int = 100): PokemonListResponse
+    suspend fun listPokemon(@Query("limit") limit: Int = 500): PokemonListResponse
 
     @GET("pokemon/{idOrName}")
     suspend fun getPokemon(@Path("idOrName") idOrName: String): PokemonDetailDto

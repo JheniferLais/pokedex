@@ -7,7 +7,7 @@ import br.com.pokedex.data.local.model.PokemonItem
 
 class PokemonRepository(private val api: PokeApi) {
 
-    suspend fun getPokemonList(limit: Int = 100): List<PokemonItem> {
+    suspend fun getPokemonList(limit: Int = 500): List<PokemonItem> {
         val res = api.listPokemon(limit)
         return res.results.map { item ->
             val id = item.url.trimEnd('/').split("/").last().toInt()

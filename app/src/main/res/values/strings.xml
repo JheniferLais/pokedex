@@ -4,4 +4,7 @@
     <string name="prompt_type">Tipo</string>
     <string name="prompt_generation">Geração</string>
     <string name="search_hint">Buscar por nome</string>
+    <string name="filtro_tipo">Filtro por tipo</string>
+    <string name="filtro_geracao">Filtro por geração</string>
+
 </resources>

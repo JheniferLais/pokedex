@@ -39,20 +39,20 @@ class MainActivity : AppCompatActivity() {
 
         // Spinner de tipo (string simples; vazio = sem filtro)
         val types = listOf(
-            "","normal","fire","water","grass","electric","ice","fighting","poison","ground","flying",
+            "Filtro por tipo","normal","fire","water","grass","electric","ice","fighting","poison","ground","flying",
             "psychic","bug","rock","ghost","dragon","dark","steel","fairy"
         )
         binding.typeSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, types)
         binding.typeSpinner.setOnItemSelectedListenerCompat { pos ->
-            val value = types[pos].ifEmpty { null }
+            val value = if (pos == 0) null else types[pos]
             vm.updateType(value)
         }
 
         // Spinner de geração (vazio = sem filtro)
-        val gens = listOf("","Gen I","Gen II","Gen III","Gen IV","Gen V","Gen VI","Gen VII","Gen VIII","Gen IX")
+        val gens = listOf("Filtro por geração","Gen I","Gen II","Gen III","Gen IV","Gen V","Gen VI","Gen VII","Gen VIII","Gen IX")
         binding.genSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, gens)
         binding.genSpinner.setOnItemSelectedListenerCompat { pos ->
-            val value = gens[pos]
+            val value = if (pos == 0) null else gens[pos]
             val gen = Generation.values().firstOrNull { it.title == value }
             vm.updateGeneration(gen)
         }

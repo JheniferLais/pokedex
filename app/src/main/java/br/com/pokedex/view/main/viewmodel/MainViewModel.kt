@@ -37,7 +37,7 @@ class MainViewModel(
     fun load() = viewModelScope.launch {
         runCatching {
             _state.update { it.copy(loading = true, error = null) }
-            val list = repo.getPokemonList(100)
+            val list = repo.getPokemonList(500)
             _state.update { it.copy(loading = false, all = list, visible = list) }
         }.onFailure {
             _state.update { s -> s.copy(loading = false, error = it.message) }

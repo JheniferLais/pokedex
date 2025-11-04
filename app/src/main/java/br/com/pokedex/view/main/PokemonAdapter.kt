@@ -20,7 +20,8 @@ class PokemonAdapter(
 
     inner class VH(val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PokemonItem) = with(binding) {
-            name.text = "${item.id} - ${item.name}"
+            name.text = "${item.name}"
+            number.text = "#${item.id}"
             image.load(item.imageUrl) { crossfade(true) }
             root.setOnClickListener { onClick(item) }
         }
