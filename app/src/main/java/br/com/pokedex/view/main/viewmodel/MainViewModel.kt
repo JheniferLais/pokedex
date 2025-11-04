@@ -63,12 +63,12 @@ class MainViewModel(
         val current = _state.value
         var base = current.all
 
-        // Filtro por geração (somente por ID localmente)
+        // Filtro por geração
         current.selectedGen?.let { gen ->
             base = base.filter { repo.isFromGeneration(it.id, gen) }
         }
 
-        // Filtro por tipo (usa endpoint /type/{type})
+        // Filtro por tipo
         val type = current.selectedType
         if (!type.isNullOrBlank()) {
             val set = typeSetCache[type] ?: repo.getPokemonNamesByType(type).also {
