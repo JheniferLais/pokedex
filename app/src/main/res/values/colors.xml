@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="pokemon_default_bg">#FFFFFFFF</color>
+    <color name="pokemon_fire_bg">#FBA64C</color>
+    <color name="pokemon_water_bg">#4A90E2</color>
+    <color name="pokemon_grass_bg">#7BCF5B</color>
+    <color name="pokemon_electric_bg">#F2D94E</color>
+    <color name="pokemon_psychic_bg">#FF6C6C</color>
+    <color name="pokemon_ice_bg">#74CEC0</color>
+    <color name="pokemon_rock_bg">#C5B489</color>
+    <color name="pokemon_ground_bg">#DDBB55</color>
+    <color name="pokemon_dark_bg">#705848</color>
+    <color name="pokemon_fairy_bg">#F7B5F7</color>
+    <color name="pokemon_steel_bg">#B7B7CE</color>
+    <color name="pokemon_ghost_bg">#7B62A3</color>
+
 </resources>
