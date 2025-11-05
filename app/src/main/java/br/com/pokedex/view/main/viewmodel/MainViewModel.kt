@@ -28,7 +28,7 @@ class MainViewModel(
     private val _state = MutableStateFlow(MainUiState(loading = true))
     val state: StateFlow<MainUiState> = _state.asStateFlow()
 
-    private var typeSetCache: Map<String, Set<String>> = emptyMap() // type -> set de nomes (lowercase)
+    private var typeSetCache: Map<String, Set<String>> = emptyMap()
 
     init {
         load()
@@ -63,12 +63,12 @@ class MainViewModel(
         val current = _state.value
         var base = current.all
 
-        // Filtro por geração
+        // Filtro por geração local
         current.selectedGen?.let { gen ->
             base = base.filter { repo.isFromGeneration(it.id, gen) }
         }
 
-        // Filtro por tipo
+        // Filtro por tipo para a api na primeira vez dps local
         val type = current.selectedType
         if (!type.isNullOrBlank()) {
             val set = typeSetCache[type] ?: repo.getPokemonNamesByType(type).also {
@@ -77,7 +77,7 @@ class MainViewModel(
             base = base.filter { set.contains(it.name.lowercase()) }
         }
 
-        // Busca por nome
+        // Busca por nome local
         val q = current.searchQuery.trim().lowercase()
         if (q.isNotEmpty()) {
             base = base.filter { it.name.lowercase().contains(q) }
