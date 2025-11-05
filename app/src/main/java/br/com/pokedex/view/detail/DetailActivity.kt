@@ -1,5 +1,6 @@
 package br.com.pokedex.view.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,6 +11,7 @@ import br.com.pokedex.databinding.ActivityDetailBinding
 import br.com.pokedex.DetailVmFactory
 import br.com.pokedex.R
 import br.com.pokedex.view.detail.viewmodel.DetailViewModel
+import br.com.pokedex.view.main.MainActivity
 import br.com.pokedex.view.main.lifecycleScopeLaunchCollect
 
 class DetailActivity : AppCompatActivity() {
@@ -20,6 +22,10 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
         val id = intent.getIntExtra("id", -1)
         val name = intent.getStringExtra("name")
