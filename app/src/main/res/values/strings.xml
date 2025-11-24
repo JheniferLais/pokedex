@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PokeDex</string>
+    <string name="untitled">Imagem do Pokémon</string>
+    <string name="prompt_type">Tipo</string>
+    <string name="prompt_generation">Geração</string>
+    <string name="search_hint">Buscar por nome</string>
+</resources>
